@@ -2,6 +2,12 @@
 
 This example shows you how to use a container machine to develop for Linux on your Mac using Visual Studio Code and its SSH remote development extension.
 
+The Dockerfile provides an Ubuntu 26.04 development environment with OpenSSH,
+systemd, and general-purpose build tools (`build-essential` and `pkg-config`).
+Swift and its development libraries are not preinstalled. To follow the Swift
+tutorial below, install a compatible Swift toolchain and its dependencies in the
+container machine first.
+
 ## Prerequisites
 
 Install and start before running the demo:
