@@ -1,13 +1,10 @@
-FROM swift:6.3.2-noble
+FROM ubuntu:26.04
 
-# Install system dependencies for Swift + OpenSSH + systemd + containerization
+# Install general development tools, OpenSSH, and systemd for the container machine
 RUN apt-get update \
- && apt-get install -y --no-install-recommends \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       curl ca-certificates git sudo systemd systemd-sysv openssh-server \
-      binutils gpg vim libc6-dev libcurl4-openssl-dev libedit2 libgcc-s1 \
-      unzip gnupg2 libgcc-13-dev libstdc++-13-dev libncurses-dev \
-      libpython3-dev libsqlite3-0 libstdc++6 libxml2-dev libz3-dev \
-      pkg-config tzdata zlib1g-dev \
+      build-essential pkg-config gnupg vim unzip tzdata \
  && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Passwordless sudo for all users
